@@ -7,13 +7,6 @@ import jakarta.persistence.*;
 @Data
 @Entity
 @Table(name = "customers")
-
-//@Getter
-//@Setter
-//@ToString
-//@EqualsAndHashCode
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
