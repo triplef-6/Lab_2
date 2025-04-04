@@ -2,6 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  // const [message, setMessage] = useState('');
+
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/')
+  //     .then(response => {
+  //       setMessage(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error('There was an error!', error);
+  //     });
+  // }, []);
+
   return (
     <div className="App">
       <header className="App-header">
