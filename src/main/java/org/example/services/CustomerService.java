@@ -1,12 +1,12 @@
 package org.example.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.example.entities.Customer;
 import org.example.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerService {
@@ -35,5 +35,13 @@ public class CustomerService {
 
     public Customer updateCustomer(Customer customer) {
         return customerRepository.save(customer);
+    }
+
+    public Customer autentification(String email, String password) {
+        Customer customer = customerRepository.findByEmail(email);
+        if (customer != null && customer.getPassword().equals(password)) {
+            return customer;
+        }
+        return null;
     }
 }

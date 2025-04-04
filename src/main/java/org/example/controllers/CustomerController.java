@@ -1,12 +1,22 @@
 package org.example.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.example.entities.AutInfo;
 import org.example.entities.Customer;
 import org.example.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -19,6 +29,12 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @PostMapping("/login")
+    @ResponseBody
+    public Customer autentification(@RequestBody AutInfo aut) {
+        return customerService.autentification(aut.getEmail(), aut.getPassword());
+    }
+    
     @GetMapping
     @ResponseBody
     public List<Customer> getAllCustomer() {
