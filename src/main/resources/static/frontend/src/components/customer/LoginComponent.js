@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import apiClient from '../../apiClient'; // Импортируем созданный экземпляр axios
+import apiClient from '../../apiClient'; // axios
 
 const LoginComponent = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
@@ -10,17 +10,16 @@ const LoginComponent = ({ onLoginSuccess }) => {
     try {
       const response = await apiClient.post('api/customer/login', { email, password });
       console.log('Login successful:', response.data);
-      // Предполагаем, что сервер возвращает customerId после успешного входа
       onLoginSuccess(response.data.id);
     } catch (error) {
-      setError('Invalid email or password');
+      setError('Фатальная ошибка в email или password!');
       console.error('Login error:', error);
     }
   };
 
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Вход</h2>
       <input
         type="email"
         placeholder="Email"
@@ -33,7 +32,7 @@ const LoginComponent = ({ onLoginSuccess }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin}>Вход</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );

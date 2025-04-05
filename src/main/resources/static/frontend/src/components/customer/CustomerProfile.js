@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import apiClient from '../../apiClient'; // Импортируем созданный экземпляр axios
+import apiClient from '../../apiClient'; // axios
 
 const CustomerProfile = ({ customerId }) => {
   const [customer, setCustomer] = useState(null);
@@ -29,9 +29,9 @@ const CustomerProfile = ({ customerId }) => {
 
   return (
     <div>
-      <h2>Customer Profile</h2>
-      <p>Name: {customer.name}</p>
-      <p>Surname: {customer.surname}</p>
+      <h2>Профиль</h2>
+      <p>Имя: {customer.name}</p>
+      <p>Фамилия: {customer.surname}</p>
       <p>Email: {customer.email}</p>
     </div>
   );
