@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import apiClient from '../../apiClient'; // axios
 
 const LoginComponent = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
       const response = await apiClient.post('api/customer/login', { email, password });
       console.log('Login successful:', response.data);
       onLoginSuccess(response.data.id);
+        navigate('/');
     } catch (error) {
       setError('Фатальная ошибка в email или password!');
       console.error('Login error:', error);

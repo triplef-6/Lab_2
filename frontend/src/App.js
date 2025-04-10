@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginComponent from './components/customer/LoginComponent';
 import CustomerProfile from './components/customer/CustomerProfile';
+import ProductList from './components/product/ProductList';
 import './App.css';
 
 function App() {
@@ -13,13 +15,18 @@ function App() {
   };
 
   return (
-    <div>
-      {isLoggedIn ? (
-        <CustomerProfile customerId={customerId} />
-      ) : (
-        <LoginComponent onLoginSuccess={handleSuccessfulLogin} />
-      )}
-    </div>
+     <Router>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={
+            isLoggedIn ? <CustomerProfile customerId={customerId} /> : <Navigate to="/login" />
+          } />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/login" element={<LoginComponent onLoginSuccess={handleSuccessfulLogin} />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
