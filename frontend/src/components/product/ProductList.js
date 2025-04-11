@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import apiClient from '../../apiClient'; // axios
 
-const ProductList = () => {
+const ProductList = ({ onAddToCart }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
 
@@ -33,6 +33,9 @@ const ProductList = () => {
             <p>{product.description}</p>
             <p>Цена: {product.cost}$</p>
             <p>{product.url_product}</p>
+            <button onClick={() => onAddToCart(product.id, product.cost, product.name)}>
+                Добавить в корзину
+            </button>
           </li>
         ))}
       </ul>
