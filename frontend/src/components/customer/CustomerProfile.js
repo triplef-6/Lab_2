@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import apiClient from '../../apiClient'; // axios
+import { useNavigate } from 'react-router-dom';
 
 const CustomerProfile = ({ customerId }) => {
   const [customer, setCustomer] = useState(null);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCustomer = async () => {
@@ -18,7 +20,9 @@ const CustomerProfile = ({ customerId }) => {
 
     fetchCustomer();
   }, [customerId]);
-
+  const handleGoToProducts = () => {
+    navigate('/products');
+  };
   if (error) {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
@@ -33,6 +37,7 @@ const CustomerProfile = ({ customerId }) => {
       <p>Имя: {customer.name}</p>
       <p>Фамилия: {customer.surname}</p>
       <p>Email: {customer.email}</p>
+        <button onClick={handleGoToProducts}>Товары</button>
     </div>
   );
 };

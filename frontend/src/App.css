@@ -1,6 +1,70 @@
+/*body {*/
+/*  font-family: 'IBM Plex sans', sans-serif;*/
+/*  background-color: #f0f8ff; /* AliceBlue */*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  height: 100vh;*/
+/*}*/
+/**/
+/*.container {*/
+/*  background-color: #fff;*/
+/*  border-radius: 10px;*/
+/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*  padding: 20px;*/
+/*  max-width: 400px;*/
+/*  width: 100%;*/
+/*  text-align: center;*/
+/*}*/
+/**/
+/*h2 {*/
+/*  color: #333;*/
+/*  margin-bottom: 20px;*/
+/*}*/
+/**/
+/*input {*/
+/*  width: calc(100% - 22px);*/
+/*  padding: 10px;*/
+/*  margin: 10px 0;*/
+/*  border: 1px solid #ccc;*/
+/*  border-radius: 5px;*/
+/*  box-sizing: border-box;*/
+/*  font-size: 16px;*/
+/*}*/
+/**/
+/*button {*/
+/*  background-color: #4CAF50;*/
+/*  color: white;*/
+/*  padding: 10px 15px;*/
+/*  border: none;*/
+/*  border-radius: 5px;*/
+/*  cursor: pointer;*/
+/*  font-size: 16px;*/
+/*  transition: background-color 0.3s ease;*/
+/*}*/
+/**/
+/*button:hover {*/
+/*  background-color: #45a049;*/
+/*}*/
+/**/
+/*p {*/
+/*  color: #666;*/
+/*  font-size: 14px;*/
+/*}*/
+/**/
+/*.error {*/
+/*  color: #d9534f;*/
+/*}*/
+/**/
+/*.loading {*/
+/*  color: #5bc0de;*/
+/*}*/
 body {
-  font-family: 'IBM Plex sans', sans-serif;
-  background-color: #f0f8ff; /* AliceBlue */
+  font-family: 'Arial', sans-serif;
+  background-color: #121212; /* Темный фон */
+  color: #e0e0e0; /* Светлый текст */
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,9 +74,9 @@ body {
 }
 
 .container {
-  background-color: #fff;
+  background-color: #1e1e1e; /* Темный фон для контейнера */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
   max-width: 400px;
   width: 100%;
@@ -20,7 +84,7 @@ body {
 }
 
 h2 {
-  color: #333;
+  color: #ffffff; /* Белый текст для заголовков */
   margin-bottom: 20px;
 }
 
@@ -28,10 +92,12 @@ input {
   width: calc(100% - 22px);
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 16px;
+  background-color: #333; /* Темный фон для полей ввода */
+  color: #e0e0e0; /* Светлый текст */
 }
 
 button {
@@ -50,15 +116,14 @@ button:hover {
 }
 
 p {
-  color: #666;
+  color: #c0c0c0; /* Светлый текст */
   font-size: 14px;
 }
 
 .error {
-  color: #d9534f;
+  color: #ff6b6b; /* Красный текст для ошибок */
 }
 
 .loading {
-  color: #5bc0de;
+  color: #5bc0de; /* Голубой текст для загрузки */
 }
-
