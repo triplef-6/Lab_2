@@ -1,25 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import apiClient from './../apiClient';
 
 const Cart = ({ cartItems, customerId, onPlaceOrder }) => {
-const handlePlaceOrder = async () => {
-    for (const item of cartItems) {
-      const orderDetails = {
-        customerId: customerId,
-        productId: item.productId,
-        cost: item.cost,
-      };
+  const navigate = useNavigate();
 
-      try {
-        await apiClient.post('/api/order', orderDetails);
-      } catch (error) {
-        console.error('Error placing order:', error);
-        alert('Failed to place order for some items');
-        return;
+  const handlePlaceOrder = async () => {
+    if (cartItems.length === 0) {
+      alert('Корзина пуста');
+    } else {
+      for (const item of cartItems) {
+        const orderDetails = {
+          customerId: customerId,
+          productId: item.productId,
+          cost: item.cost,
+        };
+
+        try {
+          await apiClient.post('/api/order', orderDetails);
+        } catch (error) {
+          console.error('Error placing order:', error);
+          alert('Ошибка создания заказа');
+          return;
+        }
       }
+      alert('Заказ создан успешно!');
+      onPlaceOrder(); // Очистка корзины после размещения заказа
     }
-    alert('Order placed successfully!');
-    onPlaceOrder(); // Очистка корзины после размещения заказа
+  };
+
+  const handleGoToProducts = () => {
+    navigate('/products');
   };
 
   return (
@@ -37,7 +48,11 @@ const handlePlaceOrder = async () => {
       ) : (
         <p>Корзина пуста</p>
       )}
-      <button onClick={handlePlaceOrder}>Сделать заказ</button>
+      {cartItems.length > 0 ? (
+        <button onClick={handlePlaceOrder}>Создать заказ</button>
+      ) : (
+        <button onClick={handleGoToProducts}>Вернуться к товарам</button>
+      )}
     </div>
   );
 };
