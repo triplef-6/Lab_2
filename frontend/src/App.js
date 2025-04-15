@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginComponent from './components/customer/LoginComponent';
+import RegisterComponent from './components/customer/RegisterComponent';
 import CustomerProfile from './components/customer/CustomerProfile';
 import ProductList from './components/product/ProductList';
 import Cart from './components/Cart';
@@ -31,6 +32,7 @@ function App() {
           } />
           <Route path="/products" element={<ProductList onAddToCart={handleAddToCart} />} />
           <Route path="/login" element={<LoginComponent onLoginSuccess={handleSuccessfulLogin} />} />
+          <Route path="/register" element={<RegisterComponent />} />
           <Route path="/cart" element={<Cart cartItems={cartItems} customerId={customerId} onPlaceOrder={handlePlaceOrder} />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

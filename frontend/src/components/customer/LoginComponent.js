@@ -20,6 +20,10 @@ const LoginComponent = ({ onLoginSuccess }) => {
     }
   };
 
+  const handleGoToRegister = () => {
+    navigate('/register');
+  }
+
   return (
     <div>
       <h2>Вход</h2>
@@ -35,6 +39,7 @@ const LoginComponent = ({ onLoginSuccess }) => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      <button onClick={handleGoToRegister}>Регистрация</button>
       <button onClick={handleLogin}>Вход</button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
