@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import apiClient from '../../apiClient'; // axios
-import { useNavigate } from 'react-router-dom';
 
 const ProductList = ({ onAddToCart }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -20,10 +18,6 @@ const ProductList = ({ onAddToCart }) => {
 
     fetchProducts();
   }, []);
-
-  const handlerGoToCart = () => {
-    navigate('/cart');
-  }
 
   if (error) {
     return <p className="error">{error}</p>;
@@ -45,7 +39,6 @@ const ProductList = ({ onAddToCart }) => {
           </li>
         ))}
       </ul>
-      <button onClick={handlerGoToCart}>Корзина</button>
     </div>
   );
 };

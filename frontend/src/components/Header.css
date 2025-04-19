@@ -1,0 +1,38 @@
+.header {
+  width: 100%;
+  background-color: #333; /* Темный фон для заголовка */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #45a049;
+}
+
+.left-button {
+  margin-right: auto; /* Отступ справа, чтобы кнопка была слева */
+}
+
+.right-buttons {
+  display: flex;
+  gap: 10px;
+}

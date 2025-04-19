@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Header from './components/Header';
 import LoginComponent from './components/customer/LoginComponent';
 import RegisterComponent from './components/customer/RegisterComponent';
 import CustomerProfile from './components/customer/CustomerProfile';
@@ -26,16 +27,17 @@ function App() {
   return (
      <Router>
       <div className="container">
-        <Routes>
-          <Route path="/" element={
-            isLoggedIn ? <CustomerProfile customerId={customerId} /> : <Navigate to="/login" />
-          } />
-          <Route path="/products" element={<ProductList onAddToCart={handleAddToCart} />} />
-          <Route path="/login" element={<LoginComponent onLoginSuccess={handleSuccessfulLogin} />} />
-          <Route path="/register" element={<RegisterComponent />} />
-          <Route path="/cart" element={<Cart cartItems={cartItems} customerId={customerId} onPlaceOrder={handlePlaceOrder} />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Header isLoggedIn={isLoggedIn} />
+        <div className='content'>
+          <Routes>
+            <Route path="/" element={<ProductList onAddToCart={handleAddToCart} />} />
+            <Route path="/login" element={<LoginComponent onLoginSuccess={handleSuccessfulLogin} />} />
+            <Route path="/register" element={<RegisterComponent />} />
+            <Route path="/cart" element={<Cart cartItems={cartItems} customerId={customerId} onPlaceOrder={handlePlaceOrder} />} />
+            <Route path='/profile' element={isLoggedIn ? <CustomerProfile customerId={customerId} /> : <Navigate to="/login" />} /> 
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
       </div>
     </Router>
   );

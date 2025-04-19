@@ -23,9 +23,6 @@ const CustomerProfile = ({ customerId }) => {
   const handleGoToProducts = () => {
     navigate('/products');
   };
-  const handlerGoToCart = () => {
-    navigate('/cart');
-  }
   if (error) {
     return <p style={{ color: 'red' }}>{error}</p>;
   }
@@ -41,7 +38,6 @@ const CustomerProfile = ({ customerId }) => {
       <p>Фамилия: {customer.surname}</p>
       <p>Email: {customer.email}</p>
       <button onClick={handleGoToProducts}>Товары</button>
-      <button onClick={handlerGoToCart}>Корзина</button>
     </div>
   );
 };
