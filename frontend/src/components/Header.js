@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Header.css";
 
 const Header = ({ isLoggedIn }) => {
   const navigate = useNavigate();
@@ -17,21 +16,23 @@ const Header = ({ isLoggedIn }) => {
     navigate('/profile');
   };
 
-  const handleCart = () => {
+  const handleGoToCart = () => {
     navigate('/cart');
   };
 
-  return (
+return (
     <header className="header">
-      <nav className='nav'>
-        <nav className='nav-button left-button' onClick={handleCart}>Корзина</nav>
-        <div className='right-button'>
+      <nav className="nav">
+        <div className="left-section">
+          <button className="nav-button" onClick={handleGoToCart}>Корзина</button>
+        </div>
+        <div className="right-section">
           {isLoggedIn ? (
-            <button onClick={handleProfile}>Профиль</button>
+            <button className="nav-button" onClick={handleProfile}>Профиль</button>
           ) : (
             <>
-              <button onClick={handleLogin}>Вход</button>
-              <button onClick={handleRegister}>Регистрация</button>
+              <button className="nav-button" onClick={handleLogin}>Вход</button>
+              <button className="nav-button" onClick={handleRegister}>Регистрация</button>
             </>
           )}
         </div>

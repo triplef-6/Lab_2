@@ -11,21 +11,32 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  padding: 80px 20px 20px; /* Увеличиваем верхний отступ, чтобы учесть фиксированный заголовок */
+  width: 100%;
+  max-width: 1200px; /* Максимальная ширина для содержимого */
 }
 
-header {
+.header {
   width: 100%;
   background-color: #333; /* Темный фон для заголовка */
   padding: 10px 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Фиксируем заголовок в верхней части страницы */
+  top: 0; /* Убираем отступ сверху */
+  left: 0;
+  z-index: 1000; /* Убедимся, что заголовок остается поверх содержимого */
 }
 
 .nav {
   display: flex;
-  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Добавляем отступы слева и справа */
+  box-sizing: border-box; /* Учитываем padding в ширине */
 }
 
 .nav-button {
@@ -43,6 +54,15 @@ header {
   background-color: #45a049;
 }
 
+.left-section {
+  display: flex;
+}
+
+.right-section {
+  display: flex;
+  gap: 10px;
+}
+
 .content {
   width: 100%;
   max-width: 1200px; /* Максимальная ширина для содержимого */
@@ -52,6 +72,7 @@ header {
 h2 {
   color: #ffffff; /* Белый текст для заголовков */
   margin-bottom: 20px;
+  margin-top: 20px; /* Добавляем отступ сверху для заголовков */
 }
 
 ul {
@@ -67,7 +88,8 @@ li {
 }
 
 input {
-  width: calc(100% - 22px);
+  width: 100%; /* Поля ввода занимают всю ширину контейнера */
+  max-width: 400px; /* Максимальная ширина для полей ввода */
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #444;
@@ -76,6 +98,7 @@ input {
   font-size: 16px;
   background-color: #333; /* Темный фон для полей ввода */
   color: #e0e0e0; /* Светлый текст */
+  display: block;
 }
 
 button {
@@ -87,6 +110,7 @@ button {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  margin: 5px; /* Добавляем отступы для кнопок */
 }
 
 button:hover {
