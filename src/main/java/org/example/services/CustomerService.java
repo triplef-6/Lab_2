@@ -34,7 +34,12 @@ public class CustomerService {
     }
 
     public Customer updateCustomer(Customer customer) {
-        return customerRepository.save(customer);
+        Customer editCustomer = customerRepository.findById(customer.getId()).orElseThrow(() -> new RuntimeException("rrr"));
+        editCustomer.setEmail(customer.getEmail());
+        editCustomer.setName(customer.getName());
+        editCustomer.setSurname(customer.getSurname());
+        editCustomer.setPassword(customer.getPassword());
+        return customerRepository.save(editCustomer);
     }
 
     public Customer autentification(String email, String password) {

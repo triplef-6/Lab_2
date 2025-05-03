@@ -129,3 +129,11 @@ p {
 .loading {
   color: #5bc0de; /* Голубой текст для загрузки */
 }
+
+.product-image {
+  width: 100px; /* Ширина изображения */
+  height: 100px; /* Высота изображения */
+  margin-right: 20px; /* Отступ справа от изображения */
+  border-radius: 5px;
+  object-fit: cover; /* Масштабирование изображения */
+}

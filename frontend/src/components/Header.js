@@ -19,11 +19,15 @@ const Header = ({ isLoggedIn }) => {
   const handleGoToCart = () => {
     navigate('/cart');
   };
+  const hendleGoToProduct = () => {
+    navigate('/product');
+  };
 
 return (
     <header className="header">
       <nav className="nav">
         <div className="left-section">
+          <button className="nav-button" onClick={hendleGoToProduct}>Товары</button>
           <button className="nav-button" onClick={handleGoToCart}>Корзина</button>
         </div>
         <div className="right-section">

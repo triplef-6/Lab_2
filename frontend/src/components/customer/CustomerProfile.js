@@ -20,8 +20,8 @@ const CustomerProfile = ({ customerId }) => {
 
     fetchCustomer();
   }, [customerId]);
-  const handleGoToProducts = () => {
-    navigate('/products');
+  const handleGoToEdit = () => {
+    navigate('/edit-profile');
   };
   if (error) {
     return <p style={{ color: 'red' }}>{error}</p>;
@@ -37,7 +37,7 @@ const CustomerProfile = ({ customerId }) => {
       <p>Имя: {customer.name}</p>
       <p>Фамилия: {customer.surname}</p>
       <p>Email: {customer.email}</p>
-      <button onClick={handleGoToProducts}>Товары</button>
+      <button onClick={handleGoToEdit}>Изменить профиль</button>
     </div>
   );
 };

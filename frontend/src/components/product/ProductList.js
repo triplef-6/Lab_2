@@ -29,10 +29,14 @@ const ProductList = ({ onAddToCart }) => {
       <ul>
         {products.map(product => (
           <li key={product.id}>
+            <img
+              src={product.url_product}
+              alt={product.name}
+              className="product-image"
+            />
             <h3>{product.name}</h3>
             <p>{product.description}</p>
             <p>Цена: {product.cost}$</p>
-            <p>{product.url_product}</p>
             <button onClick={() => onAddToCart(product.id, product.cost, product.name)}>
                 Добавить в корзину
             </button>
