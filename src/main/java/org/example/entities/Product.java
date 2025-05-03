@@ -3,13 +3,6 @@ package org.example.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-//@Getter
-//@Setter
-//@ToString
-//@EqualsAndHashCode
-//@NoArgsConstructor
-//@AllArgsConstructor
-
 @Data
 @Entity
 @Table(name = "products")
